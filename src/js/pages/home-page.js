@@ -6,7 +6,8 @@ const HomePage = {
   async _initialData() {
     try {
       const fetchResult = await fetch('/data/data.json');
-      const dataResult = await fetchResult.json();
+      // const dataResult = await fetchResult.json();
+      const dataResult = [];
       this._storyList = dataResult.listStory;
       console.log(this._storyList);
       this._populateStoryCard(this._storyList);

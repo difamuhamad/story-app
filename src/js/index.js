@@ -3,10 +3,12 @@ import '../sass/main.scss';
 
 // Import javascript file as needed
 import HomePage from './pages/home-page';
+import AddPage from './pages/add-page';
 import * as bootstrap from 'bootstrap';
 
 const routes = {
   '/': HomePage,
+  '/add': AddPage,
 };
 
 const detectRoute = () => routes[window.location.pathname];
