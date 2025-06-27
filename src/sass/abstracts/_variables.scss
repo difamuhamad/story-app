@@ -1,0 +1,25 @@
+// Colors
+$primary-color: #4285f4;
+$dark-color: #343a40;
+$light-color: #f8f9fa;
+$danger-color: #dc3545;
+$info-color: #17a2b8;
+
+// Spacing
+$spacer: 1rem;
+$spacers: (
+  0: 0,
+  1: $spacer * 0.25,
+  2: $spacer * 0.5,
+  3: $spacer,
+  4: $spacer * 1.5,
+  5: $spacer * 3,
+);
+
+// Breakpoints
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+);
