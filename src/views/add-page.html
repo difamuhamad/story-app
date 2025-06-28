@@ -8,27 +8,7 @@
   </head>
   <body>
     <header>
-      <nav class="navbar navbar-expand-md navbar-dark bg-primary">
-        <div class="container">
-          <span class="navbar-brand"><%= brandName %></span>
-
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <%= navLinks %>
-          </div>
-        </div>
-      </nav>
+      <navbar-component brandName="Story App"></navbar-component>
     </header>
 
     <main class="container my-5">
@@ -36,60 +16,30 @@
         <div class="col-md-8 col-lg-6">
           <div class="card shadow-sm">
             <div class="card-body">
-              <form id="storyForm">
-                <!-- Photo Input -->
-                <div class="mb-4">
-                  <label for="photoInput" class="form-label fw-bold"
-                    >Story Photo</label
+              <form class="row g-3" id="uploadStoryForm" novalidate>
+                <div class="col-12 col-md-6">
+                  <label for="validationCustomEvidence" class="form-label"
+                    >Image Preview:</label
                   >
-                  <div class="mb-3 text-center" id="imagePreviewContainer">
-                    <img
-                      id="imagePreview"
-                      class="img-thumbnail d-none w-100"
-                      style="max-height: 300px; object-fit: contain"
-                    />
-                  </div>
-                  <div class="input-group">
-                    <input
-                      type="file"
-                      class="form-control"
-                      id="photoInput"
-                      accept="image/*"
-                      required
-                    />
-                    <button
-                      class="btn btn-outline-secondary d-none"
-                      type="button"
-                      id="clearPhotoBtn"
-                    >
-                      <i class="bi bi-x-lg"></i>
-                    </button>
-                  </div>
-                  <div class="form-text">
-                    Supported formats: JPEG, PNG (Max 2MB)
-                  </div>
-                </div>
-
-                <!-- Description Input -->
-                <div class="mb-4">
-                  <label for="descriptionInput" class="form-label fw-bold"
-                    >Story Description</label
-                  >
-                  <textarea
-                    class="form-control"
-                    id="descriptionInput"
-                    rows="5"
-                    minlength="20"
+                  <input-image-with-preview
+                    inputId="validationCustomEvidence"
+                    invalidFeedbackMessage="Upload minimum 1 image"
                     required
-                    placeholder="Tell your story..."
-                  ></textarea>
-                  <div class="form-text">Minimum 20 characters</div>
+                  ></input-image-with-preview>
                 </div>
 
-                <div class="d-grid">
-                  <button type="submit" class="btn btn-primary">
-                    <i class="bi bi-send-fill"></i> Upload Story
-                  </button>
+                <div class="col-12 col-md-6">
+                  <label for="validationCustomNotes" class="form-label"
+                    >Description:</label
+                  >
+                  <textarea-with-validation
+                    inputId="validationCustomNotes"
+                    invalidFeedbackMessage="Description cannot be empty"
+                    required
+                  ></textarea-with-validation>
+                </div>
+                <div class="col-12 text-end">
+                  <button class="btn btn-primary" type="submit">Submit</button>
                 </div>
               </form>
             </div>
@@ -97,11 +47,6 @@
         </div>
       </div>
     </main>
-
-    <footer>
-      <div class="main-footer bg-dark">
-        <div class="container px-3 py-4"><%= footerContent %></div>
-      </div>
-    </footer>
+    <footer-component></footer-component>
   </body>
 </html>

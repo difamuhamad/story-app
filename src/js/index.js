@@ -1,6 +1,9 @@
 // Import our custom CSS
 import '../sass/main.scss';
 
+// Components
+import './components/index';
+
 // Import javascript file as needed
 import HomePage from './pages/home-page';
 import AddPage from './pages/add-page';

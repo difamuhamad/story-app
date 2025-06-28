@@ -1,6 +1,43 @@
 const HomePage = {
   async init() {
+    this._initializeTheme();
     await this._initialData();
+    this._setupThemeToggle();
+  },
+
+  _initializeTheme() {
+    const savedTheme = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', savedTheme);
+  },
+
+  _setupThemeToggle() {
+    const themeToggle = document.createElement('button');
+    themeToggle.className = 'theme-toggle';
+    themeToggle.innerHTML = '<i class="bi bi-moon-fill"></i>';
+    themeToggle.setAttribute('aria-label', 'Toggle dark mode');
+
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+    navbarCollapse.insertBefore(themeToggle, navbarCollapse.firstChild);
+
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = document.documentElement.getAttribute('data-theme');
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-theme', newTheme);
+      localStorage.setItem('theme', newTheme);
+
+      // Update icon
+      const icon = themeToggle.querySelector('i');
+      icon.className =
+        newTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
+    });
+
+    // Set initial icon
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const icon = themeToggle.querySelector('i');
+    if (currentTheme === 'dark') {
+      icon.className = 'bi bi-sun-fill';
+    }
   },
 
   async _initialData() {
