@@ -1,6 +1,7 @@
 const AddPage = {
   async init() {
     this._initialListener();
+    this._initToast();
   },
 
   _initialListener() {
@@ -30,6 +31,13 @@ const AddPage = {
       console.log('formData');
       console.log(formData);
 
+      this._clearAlerts();
+      if (!isValid) {
+        this._showAlert('Please fill all required fields correctly', 'danger');
+        return;
+      }
+
+      this._showAlert('Story submitted successfully!', 'success');
       // this._goToDashboardPage();
     }
   },
@@ -74,6 +82,22 @@ const AddPage = {
 
   _goToDashboardPage() {
     window.location.href = '/';
+  },
+  _showAlert(message, variant) {
+    const alertContainer = document
+      .getElementById('alertContainer')
+      .querySelector('.col-md-8');
+    const alert = document.createElement('alert-component');
+    alert.setAttribute('variant', variant);
+    alert.textContent = message;
+    alertContainer.appendChild(alert);
+  },
+
+  _clearAlerts() {
+    const alertContainer = document
+      .getElementById('alertContainer')
+      .querySelector('.col-md-8');
+    alertContainer.innerHTML = '';
   },
 };
 

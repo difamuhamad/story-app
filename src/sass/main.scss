@@ -1,41 +1,9 @@
 @use 'vendors';
 @use 'abstracts/variables';
 @use 'abstracts/mixins';
-@use 'base/dark-theme';
-@use 'components/navbar';
-@use 'components/card';
+@use 'components/custom-alert';
+@use 'components/custom-buttons';
+@use 'components/custom-cards';
+@use 'components/custom-navbar';
 
-body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  background-color: #f8f9fa;
-  color: #212529;
-  @include mixins.transition(background-color, 0.5s);
-}
-
-main {
-  flex: 1;
-}
-
-.container {
-  padding: 0 variables.$spacer;
-}
-
-// Responsive spacing
-@each $size, $length in variables.$spacers {
-  .mt-#{$size} {
-    margin-top: $length;
-  }
-  .mb-#{$size} {
-    margin-bottom: $length;
-  }
-  .py-#{$size} {
-    padding-top: $length;
-    padding-bottom: $length;
-  }
-  .px-#{$size} {
-    padding-left: $length;
-    padding-right: $length;
-  }
-}
+@use './base/main-theme';

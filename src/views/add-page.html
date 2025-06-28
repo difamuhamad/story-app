@@ -12,6 +12,10 @@
     </header>
 
     <main class="container my-5">
+      <!-- Alert -->
+      <div id="alertContainer" class="row justify-content-center mb-4">
+        <div class="col-md-8 col-lg-6"></div>
+      </div>
       <div class="row justify-content-center">
         <div class="col-md-8 col-lg-6">
           <div class="card shadow-sm">
@@ -28,18 +32,23 @@
                   ></input-image-with-preview>
                 </div>
 
-                <div class="col-12 col-md-6">
-                  <label for="validationCustomNotes" class="form-label"
-                    >Description:</label
-                  >
-                  <textarea-with-validation
-                    inputId="validationCustomNotes"
-                    invalidFeedbackMessage="Description cannot be empty"
-                    required
-                  ></textarea-with-validation>
-                </div>
+                <label for="validationCustomNotes" class="form-label"
+                  >Description:</label
+                >
+                <textarea-with-validation
+                  inputId="validationCustomNotes"
+                  invalidFeedbackMessage="Description cannot be empty"
+                  required
+                ></textarea-with-validation>
                 <div class="col-12 text-end">
-                  <button class="btn btn-primary" type="submit">Submit</button>
+                  <button
+                    id="liveToastBtn"
+                    class="btn btn-primary"
+                    type="submit"
+                  >
+                    Submit
+                    <i class="bi bi-send ms-2"></i>
+                  </button>
                 </div>
               </form>
             </div>

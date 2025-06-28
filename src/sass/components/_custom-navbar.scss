@@ -1,0 +1,93 @@
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mx;
+
+.navbar {
+  @include mx.sticky-navbar;
+}
+
+.navbar-container {
+  @include mx.flex-between;
+  height: 3.5rem;
+  padding: 0 vars.$spacing-md;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  color: vars.$foreground;
+  text-decoration: none;
+
+  &:hover {
+    color: vars.$primary;
+  }
+}
+
+.navbar-logo {
+  height: 1.75rem;
+  width: auto;
+  margin-right: vars.$spacing-sm;
+}
+
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: vars.$spacing-sm;
+}
+
+.nav-link {
+  @include mx.nav-link;
+
+  &.active {
+    color: vars.$primary;
+  }
+}
+
+.navbar-mobile-button {
+  display: none;
+  background: none;
+  border: none;
+  color: vars.$foreground;
+  cursor: pointer;
+  padding: vars.$spacing-sm;
+  border-radius: vars.$radius;
+
+  &:hover {
+    background-color: vars.$secondary;
+  }
+
+  @include mx.mobile-only {
+    display: flex;
+  }
+}
+
+.navbar-mobile-menu {
+  position: fixed;
+  top: 3.5rem;
+  left: 0;
+  width: 100%;
+  background-color: vars.$background;
+  border-bottom: 1px solid vars.$border;
+  padding: vars.$spacing-md;
+  display: none;
+  flex-direction: column;
+  gap: vars.$spacing-sm;
+
+  &.open {
+    display: flex;
+  }
+}
+
+@include mx.mobile-only {
+  .navbar-nav {
+    display: none;
+  }
+
+  .navbar-mobile-menu.open + .navbar-nav {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+}

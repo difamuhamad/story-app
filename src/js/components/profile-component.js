@@ -53,6 +53,7 @@ class ProfileComponent extends LitElement {
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
+      animation: fadeIn 0.3s ease-out;
       transition: transform 0.2s, box-shadow 0.2s;
     }
 
@@ -213,6 +214,17 @@ class ProfileComponent extends LitElement {
 
     .pb-2 {
       padding-bottom: 0.5rem;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(-0.5rem);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   `;
 

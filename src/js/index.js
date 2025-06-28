@@ -11,7 +11,7 @@ import * as bootstrap from 'bootstrap';
 
 const routes = {
   '/': HomePage,
-  '/add': AddPage,
+  '/add-page.html': AddPage,
 };
 
 const detectRoute = () => routes[window.location.pathname];

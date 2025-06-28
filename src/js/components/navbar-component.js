@@ -12,7 +12,7 @@ class NavbarComponent extends LitWithoutShadowDom {
 
   render() {
     return html`
-      <nav class="navbar navbar-expand-md navbar-dark bg-primary">
+      <nav class="navbar navbar-expand-md">
         <div class="container">
           <span class="navbar-brand">
             <img
@@ -25,21 +25,7 @@ class NavbarComponent extends LitWithoutShadowDom {
             ${this.brandName}
           </span>
 
-          <button
-            class="navbar-toggler"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <navbar-link></navbar-link>
-          </div>
+          <navbar-link></navbar-link>
         </div>
       </nav>
     `;

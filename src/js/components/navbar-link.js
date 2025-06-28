@@ -11,13 +11,13 @@ class NavbarLink extends LitWithoutShadowDom {
       <ul
         class="navbar-nav ms-auto mb-2 mb-md-0 d-flex align-items-center gap-3"
       >
-        <li class="nav-item">
+        <li class="nav-item navbar-link">
           <a class="nav-link" href="/">Home</a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item navbar-link">
           <a class="nav-link" href="/add-page.html">Add Story</a>
         </li>
-        <li class="nav-item dropdown d-none" id="userLoggedMenu">
+        <li class="nav-item navbar-link dropdown d-none" id="userLoggedMenu">
           <a
             class="nav-link dropdown-toggle text-nowrap"
             href="#"
@@ -41,7 +41,7 @@ class NavbarLink extends LitWithoutShadowDom {
             </li>
           </ul>
         </li>
-        <li class="nav-item" id="loginMenu">
+        <li class="nav-item navbar-link" id="loginMenu">
           <a class="nav-link" href="/profile-page.html">Profile</a>
         </li>
       </ul>

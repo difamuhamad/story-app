@@ -43,8 +43,8 @@ const HomePage = {
   async _initialData() {
     try {
       const fetchResult = await fetch('/data/data.json');
-      // const dataResult = await fetchResult.json();
-      const dataResult = [];
+      const dataResult = await fetchResult.json();
+      // const dataResult = [];
       this._storyList = dataResult.listStory;
       console.log(this._storyList);
       this._populateStoryCard(this._storyList);
@@ -57,11 +57,7 @@ const HomePage = {
   _showError() {
     const storyContainer = document.querySelector('#storyContainer');
     storyContainer.innerHTML = `
-      <div class="col-12">
-        <div class="alert alert-danger text-center">
-          Failed to load stories. Please try again later.
-        </div>
-      </div>
+     <error-template></error-template>
     `;
   },
 
@@ -89,32 +85,41 @@ const HomePage = {
 
   _templateStoryCard(story) {
     return `
-      <div class="col-md-4 mb-4">
-        <div class="card h-100">
-          <img src="${story.photoUrl}" class="card-img-top" alt="${
+  <div class="col-md-4 mb-4">
+    <div class="card h-100">
+      <img src="${story.photoUrl}" class="card-img-top" alt="${
       story.name
     }" style="height: 200px; object-fit: cover;">
-          <div class="card-body">
-            <h5 class="card-title">${story.name}</h5>
-            <p class="card-text">${story.description}</p>
-          </div>
-          <div class="card-footer bg-transparent">
-            <small class="text-muted">${new Date(
-              story.createdAt
-            ).toLocaleDateString()}</small>
-          </div>
-        </div>
+      <div class="card-body">
+              <h5 class="card-title">
+          <i class="bi bi-person-circle me-2"></i>${story.name}
+        </h5>
+        <p class="card-text">${story.description}</p>
       </div>
+      <div class="card-footer bg-transparent">
+       <small class="card-subtitle d-flex align-items-center">
+          <i class="bi bi-calendar-event me-2"></i>${this._formatTanggalIndonesia(
+            story.createdAt
+          )}
+        </small>
+      </div>
+    </div>
+  </div>
     `;
+  },
+
+  _formatTanggalIndonesia(tanggal) {
+    return new Date(tanggal).toLocaleDateString('id-ID', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    });
   },
 
   _templateEmptyStory() {
     return `
-      <div class="col-12">
-        <div class="alert alert-info text-center">
-          No stories available
-        </div>
-      </div>
+      <empty-story-template></empty-story-template>
     `;
   },
 };
