@@ -91,3 +91,47 @@
     width: 100%;
   }
 }
+
+.navbar-link {
+  locale-picker {
+    position: relative;
+    display: inline-block;
+    margin-left: vars.$spacing-sm;
+
+    select {
+      background-color: vars.$background;
+      color: vars.$foreground;
+      border: 1px solid vars.$border;
+      border-radius: vars.$radius;
+      padding: vars.$spacing-xs vars.$spacing-lg vars.$spacing-xs
+        vars.$spacing-md;
+      font-size: 0.875rem;
+      font-family: vars.$font-sans;
+      cursor: pointer;
+      appearance: none;
+      transition: all 0.2s ease;
+      min-width: 120px;
+
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='#{str-replace(#{vars.$foreground}, '#', '%23')}'%3E%3Cpath d='M7 10l5 5 5-5z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right vars.$spacing-sm center;
+      background-size: 1rem;
+
+      &:hover {
+        border-color: vars.$primary;
+        background-color: rgba(vars.$primary, 0.1);
+      }
+
+      &:focus {
+        outline: none;
+        border-color: vars.$primary;
+        box-shadow: 0 0 0 2px vars.$ring;
+      }
+
+      option {
+        background-color: vars.$background;
+        color: vars.$foreground;
+      }
+    }
+  }
+}

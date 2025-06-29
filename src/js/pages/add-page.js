@@ -1,7 +1,6 @@
 const AddPage = {
   async init() {
     this._initialListener();
-    this._initToast();
   },
 
   _initialListener() {

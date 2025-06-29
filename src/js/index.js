@@ -7,11 +7,14 @@ import './components/index';
 // Import javascript file as needed
 import HomePage from './pages/home-page';
 import AddPage from './pages/add-page';
+import ProfilePage from './pages/profile-page';
+
 import * as bootstrap from 'bootstrap';
 
 const routes = {
   '/': HomePage,
   '/add-page.html': AddPage,
+  '/profile-page.html': ProfilePage,
 };
 
 const detectRoute = () => routes[window.location.pathname];

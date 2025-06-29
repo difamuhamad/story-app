@@ -18,30 +18,11 @@ const HomePage = {
 
     const navbarCollapse = document.querySelector('.navbar-collapse');
     navbarCollapse.insertBefore(themeToggle, navbarCollapse.firstChild);
-
-    themeToggle.addEventListener('click', () => {
-      const currentTheme = document.documentElement.getAttribute('data-theme');
-      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-      document.documentElement.setAttribute('data-theme', newTheme);
-      localStorage.setItem('theme', newTheme);
-
-      // Update icon
-      const icon = themeToggle.querySelector('i');
-      icon.className =
-        newTheme === 'dark' ? 'bi bi-sun-fill' : 'bi bi-moon-fill';
-    });
-
-    // Set initial icon
-    const currentTheme = document.documentElement.getAttribute('data-theme');
-    const icon = themeToggle.querySelector('i');
-    if (currentTheme === 'dark') {
-      icon.className = 'bi bi-sun-fill';
-    }
   },
 
   async _initialData() {
     try {
+      this._loadingSpinner();
       const fetchResult = await fetch('/data/data.json');
       const dataResult = await fetchResult.json();
       // const dataResult = [];
@@ -51,6 +32,8 @@ const HomePage = {
     } catch (error) {
       console.error('Error fetching data:', error);
       this._showError();
+    } finally {
+      this._removeLoadingSpinner();
     }
   },
 
@@ -121,6 +104,21 @@ const HomePage = {
     return `
       <empty-story-template></empty-story-template>
     `;
+  },
+
+  _loadingSpinner() {
+    const storyContainer = document.querySelector('#storyContainer');
+    storyContainer.innerHTML = `
+ <div class="text-center my-5">
+    <spinner-component></spinner-component>
+    <p class="mt-2 text-muted">Loading...</p>
+  </div>
+    `;
+  },
+
+  _removeLoadingSpinner() {
+    const spinner = document.querySelector('#storyContainer spinner-component');
+    if (spinner) spinner.remove();
   },
 };
 

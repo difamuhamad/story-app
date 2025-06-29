@@ -1,9 +1,12 @@
 import { html } from 'lit';
 import LitWithoutShadowDom from './base/lit-without-shadowdom';
+import { updateWhenLocaleChanges } from '@lit/localize';
 
 class NavbarLink extends LitWithoutShadowDom {
   constructor() {
     super();
+
+    updateWhenLocaleChanges(this);
   }
 
   render() {
@@ -43,6 +46,9 @@ class NavbarLink extends LitWithoutShadowDom {
         </li>
         <li class="nav-item navbar-link" id="loginMenu">
           <a class="nav-link" href="/profile-page.html">Profile</a>
+        </li>
+        <li class="nav-item navbar-link" id="loginMenu">
+          <locale-picker></locale-picker>
         </li>
       </ul>
     `;

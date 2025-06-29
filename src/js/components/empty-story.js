@@ -1,6 +1,12 @@
+import { msg, updateWhenLocaleChanges } from '@lit/localize';
 import { css, html, LitElement } from 'lit';
 
 class EmptyStoryTemplate extends LitElement {
+  constructor() {
+    super();
+
+    updateWhenLocaleChanges(this);
+  }
   static styles = css`
     .error-container {
       display: flex;
@@ -53,7 +59,7 @@ class EmptyStoryTemplate extends LitElement {
     return html`
       <div class="error-container">
         <div class="error-alert">
-          <div class="error-message">Story is empty.</div>
+          <div class="error-message">${msg(`Story is empty`)}</div>
         </div>
       </div>
     `;

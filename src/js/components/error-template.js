@@ -1,6 +1,11 @@
+import { msg, updateWhenLocaleChanges } from '@lit/localize';
 import { css, html, LitElement } from 'lit';
 
 class ErrorTemplate extends LitElement {
+  constructor() {
+    super();
+    updateWhenLocaleChanges(this);
+  }
   static styles = css`
     .error-container {
       display: flex;
@@ -54,7 +59,7 @@ class ErrorTemplate extends LitElement {
       <div class="error-container">
         <div class="error-alert">
           <div class="error-message">
-            Failed to load stories. Please try again later.
+            ${msg(`Failed to load stories. Please try again later.`)}
           </div>
         </div>
       </div>

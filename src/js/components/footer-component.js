@@ -1,6 +1,12 @@
+import { msg, updateWhenLocaleChanges } from '@lit/localize';
 import { html, LitElement, css } from 'lit';
 
 class FooterComponent extends LitElement {
+  constructor() {
+    super();
+
+    updateWhenLocaleChanges(this);
+  }
   static styles = css`
     :host {
       display: block;
@@ -77,7 +83,7 @@ class FooterComponent extends LitElement {
         <div class="main-footer">
           <div class="container px-3 py-4">
             <p class="text-center text-white mb-0">
-              &copy; 2025 Story App. All rights reserved.
+              &copy; 2025 ${msg(`Story App. All rights reserved.`)}
             </p>
           </div>
         </div>

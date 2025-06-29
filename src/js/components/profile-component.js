@@ -1,6 +1,12 @@
+import { msg, updateWhenLocaleChanges } from '@lit/localize';
 import { html, LitElement, css } from 'lit';
 
 class ProfileComponent extends LitElement {
+  constructor() {
+    super();
+
+    updateWhenLocaleChanges(this);
+  }
   static styles = css`
     :host {
       display: block;
@@ -244,37 +250,39 @@ class ProfileComponent extends LitElement {
                 />
                 <div class="mt-3">
                   <button class="btn btn-outline-primary btn-sm">
-                    <i class="bi bi-camera"></i> Change Photo
+                    <i class="bi bi-camera"></i> ${msg(`Change Photo`)}
                   </button>
                 </div>
               </div>
 
               <div class="mb-4">
-                <h5 class="border-bottom pb-2">Account Information</h5>
+                <h5 class="border-bottom pb-2">
+                  ${msg(`Account Information`)}
+                </h5>
                 <dl class="row">
-                  <dt class="col-sm-4">User ID</dt>
+                  <dt class="col-sm-4">${msg(`User ID`)}</dt>
                   <dd class="col-sm-8">GUEST-12345</dd>
 
                   <dt class="col-sm-4">Username</dt>
                   <dd class="col-sm-8">guest_user</dd>
 
-                  <dt class="col-sm-4">Full Name</dt>
+                  <dt class="col-sm-4">${msg(`Full Name`)}</dt>
                   <dd class="col-sm-8">Guest User</dd>
 
                   <dt class="col-sm-4">Email</dt>
                   <dd class="col-sm-8">guest@example.com</dd>
 
-                  <dt class="col-sm-4">Member Since</dt>
+                  <dt class="col-sm-4">${msg(`Member since`)}</dt>
                   <dd class="col-sm-8">June 2025</dd>
                 </dl>
               </div>
 
               <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <button class="btn btn-outline-secondary me-md-2">
-                  <i class="bi bi-pencil"></i> Edit Profile
+                  <i class="bi bi-pencil"></i> ${msg(`Edit Profile`)}
                 </button>
                 <button class="btn btn-primary">
-                  <i class="bi bi-box-arrow-right"></i> Sign Out
+                  <i class="bi bi-box-arrow-right"></i> ${msg(`Sign Out`)}
                 </button>
               </div>
             </div>
