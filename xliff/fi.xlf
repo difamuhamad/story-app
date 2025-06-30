@@ -44,21 +44,23 @@
 </trans-unit>
 <trans-unit id="s603acf926e094d42">
   <source>Image Preview</source>
+ <target>Kuvan esikatselu</target>
 </trans-unit>
 <trans-unit id="s301ffc08c967a5ee">
   <source>Upload minimum 1 image</source>
+  <target>Lataa vähintään yksi kuva</target>
 </trans-unit>
 <trans-unit id="s63d894b1ddb06289">
   <source>Description</source>
+  <target>Kuvaus</target>
 </trans-unit>
 <trans-unit id="sa06ec0556a52eed8">
   <source>Description cannot be empty</source>
+  <target>Kuvaus ei voi olla tyhjä</target>
 </trans-unit>
 <trans-unit id="sb3d4f79d9d8b71e5">
   <source>Submit</source>
-</trans-unit>
-<trans-unit id="s5717c3e683349951">
-  <source>Atribut "invalidFeedbackMessage" harus diterapkan pada elemen</source>
+  <target>Lähetä</target>
 </trans-unit>
 </body>
 </file>
