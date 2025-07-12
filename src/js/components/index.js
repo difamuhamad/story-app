@@ -5,6 +5,7 @@ import './profile-component';
 import './error-template';
 import './empty-story';
 import './alert-component';
+import './navbar-link-responsive';
 
 import './form/input-image-with-preview';
 import './form/textarea-with-validation';

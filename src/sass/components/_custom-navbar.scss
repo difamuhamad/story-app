@@ -135,3 +135,46 @@
     }
   }
 }
+
+.navbar-link-responsive {
+  display: none;
+}
+
+@media (max-width: 767.98px) {
+  .offcanvas {
+    width: 75% !important;
+  }
+
+  .offcanvas-body {
+    .navbar-nav {
+      flex-direction: column;
+      gap: 0.5rem;
+
+      .nav-item {
+        width: 100%;
+        padding: 0.5rem 0;
+        border-bottom: 1px solid vars.$border;
+
+        &:last-child {
+          border-bottom: none;
+        }
+      }
+    }
+
+    locale-picker {
+      margin-top: 1rem;
+      width: 100%;
+
+      .form-select {
+        width: 100% !important;
+      }
+    }
+  }
+  .navbar-link {
+    display: none;
+  }
+
+  .navbar-link-responsive {
+    display: block;
+  }
+}

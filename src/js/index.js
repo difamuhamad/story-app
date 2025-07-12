@@ -1,6 +1,9 @@
 // Import our custom CSS
 import '../sass/main.scss';
 
+// import boostrap for utils
+import 'bootstrap';
+
 // Components
 import './components/index';
 
